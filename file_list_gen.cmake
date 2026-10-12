@@ -22,6 +22,9 @@ list(
   ${CMAKE_CURRENT_LIST_DIR}/components/list/list_section/list_section_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/list/list_separator/list_separator_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/list/list/list_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/round_button_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/section_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/sliderbox_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/typography/h1/h1_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/typography/h2/h2_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/typography/h3/h3_gen.c
@@ -83,4 +86,5 @@ list(
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_wifi_zero_data.c
   ${CMAKE_CURRENT_LIST_DIR}/lvgl_ui_project_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/lvgl_ui_project.c
-  ${CMAKE_CURRENT_LIST_DIR}/screens/screen_components_gen.c)
+  ${CMAKE_CURRENT_LIST_DIR}/screens/data_bindings/screen_data_bindings_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/screens/watch/screen_components_gen.c)

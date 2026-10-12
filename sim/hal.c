@@ -15,6 +15,47 @@
 
 #include <windows.h>
 
+/* The dev target is a round display: clip the simulator window to the circle
+ * inscribed in its client area, so content in the corners is cropped exactly
+ * like on the physical round panel. */
+static void round_window_clip(void)
+{
+    DWORD self = GetCurrentProcessId();
+    HWND hwnd = NULL;
+    int i;
+
+    for(i = 0; i < 50 && !hwnd; ++i) {
+        HWND w = FindWindowW(NULL, L"LVGL Simulator");
+        if(w) {
+            DWORD pid = 0;
+            GetWindowThreadProcessId(w, &pid);
+            if(pid == self) hwnd = w;
+        }
+        if(!hwnd) Sleep(10);
+    }
+    if(!hwnd) return;
+
+    /* Wait until the driver has sized the window. */
+    RECT rc;
+    for(i = 0; i < 50; ++i) {
+        if(GetClientRect(hwnd, &rc) && rc.right > 0 && rc.bottom > 0) break;
+        Sleep(10);
+    }
+    if(rc.right <= 0 || rc.bottom <= 0) return;
+
+    /* SetWindowRgn coordinates are relative to the window; the client area
+     * starts below the title bar, so shift the ellipse by the frame size. */
+    POINT origin = {0, 0};
+    ClientToScreen(hwnd, &origin);
+    RECT wr;
+    GetWindowRect(hwnd, &wr);
+
+    HRGN rgn = CreateEllipticRgn(origin.x - wr.left, origin.y - wr.top,
+                                 origin.x - wr.left + rc.right,
+                                 origin.y - wr.top + rc.bottom);
+    if(rgn) SetWindowRgn(hwnd, rgn, TRUE);
+}
+
 lv_display_t * hal_init(int32_t hor_res, int32_t ver_res)
 {
     lv_display_t * disp = lv_windows_create_display(
@@ -35,6 +76,10 @@ lv_display_t * hal_init(int32_t hor_res, int32_t ver_res)
 
     lv_indev_t * encoder = lv_windows_acquire_encoder_indev(disp);
     lv_indev_set_group(encoder, group);
+
+#if 0 //ROUND_DISPLAY
+    round_window_clip();
+#endif
 
     return disp;
 }

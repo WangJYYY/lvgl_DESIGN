@@ -126,6 +126,9 @@
 			help="Example value (0..100) driven by the demo controls"
 		/>
 		<int name="subject_show_keyboard" value="0" help="Wether to show a keyboard " />
+		<int name="subject_volume" value="50" />
+		<int name="subject_timeout" value="100" />
+		<int name="subject_max_current" value="500" />
 	</subjects>
 
 	<images>

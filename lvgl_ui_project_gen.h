@@ -233,6 +233,9 @@ extern const void * icon_wifi_zero;
 extern lv_subject_t subject_theme_dark;
 extern lv_subject_t subject_brightness;
 extern lv_subject_t subject_show_keyboard;
+extern lv_subject_t subject_volume;
+extern lv_subject_t subject_timeout;
+extern lv_subject_t subject_max_current;
 
 /**********************
  * GLOBAL PROTOTYPES
@@ -278,13 +281,17 @@ void lvgl_ui_project_init_gen(const char * asset_path);
 #include "components/list/list_section/list_section_gen.h"
 #include "components/list/list_separator/list_separator_gen.h"
 #include "components/list/list/list_gen.h"
+#include "components/round_button_gen.h"
+#include "components/section_gen.h"
+#include "components/sliderbox_gen.h"
 #include "components/typography/h1/h1_gen.h"
 #include "components/typography/h2/h2_gen.h"
 #include "components/typography/h3/h3_gen.h"
 #include "components/typography/h4/h4_gen.h"
 #include "components/typography/h5/h5_gen.h"
 #include "components/typography/text/text_gen.h"
-#include "screens/screen_components_gen.h"
+#include "screens/data_bindings/screen_data_bindings_gen.h"
+#include "screens/watch/screen_components_gen.h"
 
 #ifdef __cplusplus
 } /*extern "C"*/

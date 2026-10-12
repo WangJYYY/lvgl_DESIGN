@@ -193,6 +193,9 @@ lv_style_t style_scrollbar;
 lv_subject_t subject_theme_dark;
 lv_subject_t subject_brightness;
 lv_subject_t subject_show_keyboard;
+lv_subject_t subject_volume;
+lv_subject_t subject_timeout;
+lv_subject_t subject_max_current;
 
 /**********************
  *      MACROS
@@ -524,6 +527,9 @@ void lvgl_ui_project_init_gen(const char * asset_path)
     lv_subject_set_min_value_int(&subject_brightness, 0);
     lv_subject_set_max_value_int(&subject_brightness, 100);
     lv_subject_init_int(&subject_show_keyboard, 0);
+    lv_subject_init_int(&subject_volume, 50);
+    lv_subject_init_int(&subject_timeout, 100);
+    lv_subject_init_int(&subject_max_current, 500);
 
     /*----------------
      * Translations
@@ -560,6 +566,9 @@ void lvgl_ui_project_init_gen(const char * asset_path)
     lv_xml_register_subject(NULL, "subject_theme_dark", &subject_theme_dark);
     lv_xml_register_subject(NULL, "subject_brightness", &subject_brightness);
     lv_xml_register_subject(NULL, "subject_show_keyboard", &subject_show_keyboard);
+    lv_xml_register_subject(NULL, "subject_volume", &subject_volume);
+    lv_xml_register_subject(NULL, "subject_timeout", &subject_timeout);
+    lv_xml_register_subject(NULL, "subject_max_current", &subject_max_current);
 
     /* Register callbacks */
 #endif

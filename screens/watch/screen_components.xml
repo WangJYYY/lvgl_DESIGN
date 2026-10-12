@@ -1,0 +1,16 @@
+<screen permanent="true">
+	<view extends="lv_obj" style_bg_color="0x000000" style_radius="233" style_clip_corner="true">
+		<!-- Round bezel: visible ring framing the dial in the square preview.
+		     Content goes INSIDE this container so it gets clipped to the circle. -->
+		<lv_obj
+			name="bezel"
+			width="466" height="466"
+			scrollable="false"
+			style_bg_opa="0%"
+			style_border_width="4"
+			style_border_color="0x04ff00"
+			style_radius="233"
+			style_clip_corner="true"
+		/>
+	</view>
+</screen>
