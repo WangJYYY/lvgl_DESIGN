@@ -203,6 +203,7 @@ extern lv_font_t * font_h4;
 extern lv_font_t * font_h3;
 extern lv_font_t * font_h2;
 extern lv_font_t * font_h1;
+extern lv_font_t * font_time;
 
 
 /*----------------
@@ -309,6 +310,7 @@ void lvgl_ui_project_init_gen(const char * asset_path);
 #include "components/controls/switch/switch_gen.h"
 #include "components/controls/text_box/text_box_gen.h"
 #include "components/controls/text_input/text_input_gen.h"
+#include "components/faces/face_dial_gen.h"
 #include "components/images/image/image_gen.h"
 #include "components/images/monoicon/monoicon_gen.h"
 #include "components/layout/base_box/base_box_gen.h"

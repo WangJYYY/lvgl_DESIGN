@@ -122,6 +122,15 @@
 			symbols="°—•"
 			as_file="false"
 		/>
+		<!-- Big digits for the watch dial clock -->
+		<bin
+			name="font_time"
+			size="64"
+			src_path="fonts/Montserrat-Bold.ttf"
+			bpp="4"
+			range="0x20-0x7F"
+			as_file="false"
+		/>
 	</fonts>
 
 	<!-- Observable model the UI binds to. Add your own and bind widgets with

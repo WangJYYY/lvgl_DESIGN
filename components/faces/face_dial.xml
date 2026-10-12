@@ -1,0 +1,60 @@
+<!-- Watch face: seconds ring (lv_arc) + minute tick marks (lv_scale) +
+     digital time / date / battery readout. Binds the global watch subjects
+     (subject_time / subject_date / subject_seconds / subject_battery)
+     directly — faces are app-level pages, not reusable parameterized widgets. -->
+<component>
+	<previews>
+		<!-- Full-size round preview: the dial is designed at native 466x466 -->
+		<preview name="round_466" width="466" height="466" style_bg_color="0x000000" style_radius="233" style_clip_corner="true" />
+	</previews>
+
+	<styles>
+		<style name="style_sec_track" arc_width="6" arc_color="#color_watch_panel2" arc_rounded="true" />
+		<style name="style_sec_ind" arc_width="6" arc_color="#color_data" arc_rounded="true" />
+		<style name="style_knob_hidden" bg_opa="0%" />
+		<style name="style_scale_minor" line_color="#color_watch_panel2" length="10" />
+		<style name="style_scale_major" line_color="#color_watch_text2" line_width="3" length="18" />
+	</styles>
+
+	<view width="466" height="466" scrollable="false" style_bg_opa="0%">
+		<!-- Seconds ring: one full revolution per minute, starts at 12 o'clock -->
+		<lv_arc
+			name="sec_ring"
+			width="440" height="440"
+			align="center"
+			clickable="false"
+			min_value="0" max_value="59"
+			bg_start_angle="270" bg_end_angle="269"
+			bind_value="subject_seconds"
+		>
+			<style name="style_sec_track" selector="main" />
+			<style name="style_sec_ind" selector="indicator" />
+			<style name="style_knob_hidden" selector="knob" />
+		</lv_arc>
+
+		<!-- 60 tick marks around the dial (major every 5 minutes) -->
+		<lv_scale
+			name="ticks"
+			width="440" height="440"
+			align="center"
+			mode="round_inner"
+			min_value="0" max_value="60"
+			total_tick_count="61"
+			major_tick_every="5"
+			angle_range="360"
+			rotation="270"
+			label_show="false"
+		>
+			<style name="style_scale_minor" selector="items" />
+			<style name="style_scale_major" selector="indicator" />
+		</lv_scale>
+
+		<!-- Digital time + date -->
+		<lv_label name="time_label" align="center" y="-30" bind_text="subject_time" style_text_font="font_time" />
+		<lv_label name="date_label" align="center" y="34" bind_text="subject_date" style_text_color="#color_watch_text2" style_text_font="font_h5" />
+
+		<!-- Battery readout -->
+		<lv_image name="battery_icon" src="icon_battery" align="center" x="-26" y="150" />
+		<lv_label name="battery_label" align="center" x="24" y="150" bind_text="subject_battery" bind_text-fmt="%d%%" style_text_color="#color_watch_text2" />
+	</view>
+</component>

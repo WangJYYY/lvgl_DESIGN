@@ -62,6 +62,7 @@ lv_obj_t * screen_components_create(void)
         lv_obj_set_style_border_color(bezel, lv_color_hex(0x04ff00), 0);
         lv_obj_set_style_radius(bezel, 233, 0);
         lv_obj_set_style_clip_corner(bezel, true, 0);
+        face_dial_create(bezel);
 
         the_root = lv_obj_0;
     }

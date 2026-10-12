@@ -11,6 +11,8 @@
 			style_border_color="0x04ff00"
 			style_radius="233"
 			style_clip_corner="true"
-		/>
+		>
+			<face_dial />
+		</lv_obj>
 	</view>
 </screen>

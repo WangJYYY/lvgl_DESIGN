@@ -11,6 +11,7 @@ list(
   ${CMAKE_CURRENT_LIST_DIR}/components/controls/switch/switch_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/controls/text_box/text_box_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/controls/text_input/text_input_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/faces/face_dial_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/images/image/image_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/images/monoicon/monoicon_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/layout/base_box/base_box_gen.c
@@ -38,6 +39,7 @@ list(
   ${CMAKE_CURRENT_LIST_DIR}/fonts/font_h3_data.c
   ${CMAKE_CURRENT_LIST_DIR}/fonts/font_h4_data.c
   ${CMAKE_CURRENT_LIST_DIR}/fonts/font_h5_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/font_time_data.c
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_arrow_down_data.c
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_arrow_left_data.c
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_arrow_right_data.c

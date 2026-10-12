@@ -75,6 +75,8 @@ lv_font_t * font_h2;
 extern lv_font_t font_h2_data;
 lv_font_t * font_h1;
 extern lv_font_t font_h1_data;
+lv_font_t * font_time;
+extern lv_font_t font_time_data;
 
 /*----------------
  * Images
@@ -278,6 +280,12 @@ void lvgl_ui_project_init_gen(const char * asset_path)
             /* font_h1 */
             /* get font 'font_h1' from a C array */
             font_h1 = &font_h1_data;
+
+        }
+        if (!font_time) {
+            /* font_time */
+            /* get font 'font_time' from a C array */
+            font_time = &font_time_data;
 
         }
     }
@@ -611,6 +619,7 @@ void lvgl_ui_project_init_gen(const char * asset_path)
     check_font(&font_h3, "font_h3");
     check_font(&font_h2, "font_h2");
     check_font(&font_h1, "font_h1");
+    check_font(&font_time, "font_time");
 
     /* Register fonts */
     lv_xml_register_font(NULL, "font_body_symbols", font_body_symbols);
@@ -620,6 +629,7 @@ void lvgl_ui_project_init_gen(const char * asset_path)
     lv_xml_register_font(NULL, "font_h3", font_h3);
     lv_xml_register_font(NULL, "font_h2", font_h2);
     lv_xml_register_font(NULL, "font_h1", font_h1);
+    lv_xml_register_font(NULL, "font_time", font_time);
 
     /* Register subjects */
     lv_xml_register_subject(NULL, "subject_theme_dark", &subject_theme_dark);
