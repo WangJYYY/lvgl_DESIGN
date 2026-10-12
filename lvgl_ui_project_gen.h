@@ -113,6 +113,34 @@ bool lvgl_ui_project_check_target(uint32_t target);
  */
 #define COLOR_DARK_TEXT lv_color_hex(0xE6E9F0)
 /**
+ * Watch screen background: true black, AMOLED pixels fully off
+ */
+#define COLOR_WATCH_BG lv_color_hex(0x000000)
+/**
+ * Watch card background
+ */
+#define COLOR_WATCH_PANEL lv_color_hex(0x14171E)
+/**
+ * Watch card background, one step brighter (layered hierarchy)
+ */
+#define COLOR_WATCH_PANEL2 lv_color_hex(0x1B1F28)
+/**
+ * Watch secondary/muted text
+ */
+#define COLOR_WATCH_TEXT2 lv_color_hex(0x8A93A6)
+/**
+ * Watch accent: data rings, sliders, live values
+ */
+#define COLOR_DATA lv_color_hex(0x00D8FF)
+/**
+ * Goal reached / healthy
+ */
+#define COLOR_OK lv_color_hex(0x3DD68C)
+/**
+ * Reminder / warning
+ */
+#define COLOR_WARN lv_color_hex(0xF5A623)
+/**
  * Accent / active control color
  */
 #define COLOR_ACCENT lv_color_hex(0x9429FF)
@@ -156,7 +184,10 @@ extern lv_style_t style_screen_light;
 extern lv_style_t style_screen_dark;
 extern lv_style_t style_panel_light;
 extern lv_style_t style_panel_dark;
+extern lv_style_t style_screen_watch;
+extern lv_style_t style_watch_panel;
 extern lv_style_t style_text_accent;
+extern lv_style_t style_text_data;
 extern lv_style_t style_text_muted;
 extern lv_style_t style_scrollbar;
 
@@ -236,6 +267,14 @@ extern lv_subject_t subject_show_keyboard;
 extern lv_subject_t subject_volume;
 extern lv_subject_t subject_timeout;
 extern lv_subject_t subject_max_current;
+extern lv_subject_t subject_time;
+extern lv_subject_t subject_date;
+extern lv_subject_t subject_seconds;
+extern lv_subject_t subject_battery;
+extern lv_subject_t subject_steps;
+extern lv_subject_t subject_hr;
+extern lv_subject_t subject_temp;
+extern lv_subject_t subject_humidity;
 
 /**********************
  * GLOBAL PROTOTYPES

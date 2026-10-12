@@ -30,7 +30,7 @@ int main(void)
 
     /* Load a screen from your project */
 
-    lv_screen_load(screen_components_create());
+    lv_screen_load(screen_data_bindings_create());
 
     lv_unlock();
 

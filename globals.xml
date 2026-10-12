@@ -34,6 +34,16 @@
 		<color name="color_dark_panel" value="0x1E232E" help="Dark theme panel/card background" />
 		<color name="color_dark_text" value="0xE6E9F0" help="Dark theme primary text" />
 
+		<!-- Watch palette (always-dark, AMOLED-tuned; watch screens never switch theme).
+		     Reference these from face/card components instead of raw hex. -->
+		<color name="color_watch_bg" value="0x000000" help="Watch screen background: true black, AMOLED pixels fully off" />
+		<color name="color_watch_panel" value="0x14171E" help="Watch card background" />
+		<color name="color_watch_panel2" value="0x1B1F28" help="Watch card background, one step brighter (layered hierarchy)" />
+		<color name="color_watch_text2" value="0x8A93A6" help="Watch secondary/muted text" />
+		<color name="color_data" value="0x00D8FF" help="Watch accent: data rings, sliders, live values" />
+		<color name="color_ok" value="0x3DD68C" help="Goal reached / healthy" />
+		<color name="color_warn" value="0xF5A623" help="Reminder / warning" />
+
 		<!-- Accent + semantic colors (same in both themes) -->
 		<color name="color_accent" value="0x9429FF" help="Accent / active control color" />
 		<color name="color_accent_text" value="0xFFFFFF" help="Text/icon drawn on top of the accent color" />
@@ -129,6 +139,17 @@
 		<int name="subject_volume" value="50" />
 		<int name="subject_timeout" value="100" />
 		<int name="subject_max_current" value="500" />
+
+		<!-- Watch data model (v1 pages: dial / health / weather).
+		     The app writes these; the UI only binds and displays. -->
+		<string name="subject_time" value="07:30" help="Digital clock HH:MM, updated by the app every minute" />
+		<string name="subject_date" value="10-12 SUN" help="Date line on the dial (ASCII only: current fonts have no CJK glyphs)" />
+		<int name="subject_seconds" value="0" min_value="0" max_value="59" help="Second counter driving the seconds ring" />
+		<int name="subject_battery" value="80" min_value="0" max_value="100" help="Battery percentage" />
+		<int name="subject_steps" value="6800" min_value="0" max_value="50000" help="Today's step count" />
+		<int name="subject_hr" value="72" min_value="30" max_value="200" help="Heart rate, bpm" />
+		<int name="subject_temp" value="24" min_value="-20" max_value="50" help="Outdoor temperature, degrees C" />
+		<int name="subject_humidity" value="55" min_value="0" max_value="100" help="Relative humidity, percent" />
 	</subjects>
 
 	<images>
@@ -507,8 +528,33 @@
 			radius="#radius_default"
 		/>
 
+		<!-- Watch screens: always dark with a true-black bg. Same mechanism as
+		     style_screen_light/dark: set text_color AND text_font so they inherit
+		     down the whole tree. -->
+		<style
+			name="style_screen_watch"
+			bg_color="#color_watch_bg"
+			bg_opa="100%"
+			text_color="#color_dark_text"
+			text_font="font_body"
+		/>
+
+		<!-- Watch card surface for face/health/weather panels -->
+		<style
+			name="style_watch_panel"
+			bg_color="#color_watch_panel"
+			bg_opa="100%"
+			border_width="0"
+			text_color="#color_dark_text"
+			pad_all="#space_md"
+			radius="#radius_default"
+		/>
+
 		<!-- Accent text, e.g. a live value readout -->
 		<style name="style_text_accent" text_color="#color_accent" />
+
+		<!-- Live data value in the watch accent color -->
+		<style name="style_text_data" text_color="#color_data" />
 
 		<!-- Muted secondary text (captions, subtitles, section headers) -->
 		<style name="style_text_muted" text_opa="60%" />

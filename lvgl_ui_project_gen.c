@@ -182,7 +182,10 @@ lv_style_t style_screen_light;
 lv_style_t style_screen_dark;
 lv_style_t style_panel_light;
 lv_style_t style_panel_dark;
+lv_style_t style_screen_watch;
+lv_style_t style_watch_panel;
 lv_style_t style_text_accent;
+lv_style_t style_text_data;
 lv_style_t style_text_muted;
 lv_style_t style_scrollbar;
 
@@ -196,6 +199,14 @@ lv_subject_t subject_show_keyboard;
 lv_subject_t subject_volume;
 lv_subject_t subject_timeout;
 lv_subject_t subject_max_current;
+lv_subject_t subject_time;
+lv_subject_t subject_date;
+lv_subject_t subject_seconds;
+lv_subject_t subject_battery;
+lv_subject_t subject_steps;
+lv_subject_t subject_hr;
+lv_subject_t subject_temp;
+lv_subject_t subject_humidity;
 
 /**********************
  *      MACROS
@@ -478,7 +489,10 @@ void lvgl_ui_project_init_gen(const char * asset_path)
         lv_style_init(&style_screen_dark);
         lv_style_init(&style_panel_light);
         lv_style_init(&style_panel_dark);
+        lv_style_init(&style_screen_watch);
+        lv_style_init(&style_watch_panel);
         lv_style_init(&style_text_accent);
+        lv_style_init(&style_text_data);
         lv_style_init(&style_text_muted);
         lv_style_init(&style_scrollbar);
 
@@ -506,7 +520,18 @@ void lvgl_ui_project_init_gen(const char * asset_path)
         lv_style_set_text_color(&style_panel_dark, COLOR_DARK_TEXT);
         lv_style_set_pad_all(&style_panel_dark, SPACE_MD);
         lv_style_set_radius(&style_panel_dark, RADIUS_DEFAULT);
+        lv_style_set_bg_color(&style_screen_watch, COLOR_WATCH_BG);
+        lv_style_set_bg_opa(&style_screen_watch, (255 * 100 / 100));
+        lv_style_set_text_color(&style_screen_watch, COLOR_DARK_TEXT);
+        lv_style_set_text_font(&style_screen_watch, font_body);
+        lv_style_set_bg_color(&style_watch_panel, COLOR_WATCH_PANEL);
+        lv_style_set_bg_opa(&style_watch_panel, (255 * 100 / 100));
+        lv_style_set_border_width(&style_watch_panel, 0);
+        lv_style_set_text_color(&style_watch_panel, COLOR_DARK_TEXT);
+        lv_style_set_pad_all(&style_watch_panel, SPACE_MD);
+        lv_style_set_radius(&style_watch_panel, RADIUS_DEFAULT);
         lv_style_set_text_color(&style_text_accent, COLOR_ACCENT);
+        lv_style_set_text_color(&style_text_data, COLOR_DATA);
         lv_style_set_text_opa(&style_text_muted, (255 * 60 / 100));
         lv_style_set_width(&style_scrollbar, SPACE_SM);
         lv_style_set_radius(&style_scrollbar, SPACE_SM);
@@ -530,6 +555,40 @@ void lvgl_ui_project_init_gen(const char * asset_path)
     lv_subject_init_int(&subject_volume, 50);
     lv_subject_init_int(&subject_timeout, 100);
     lv_subject_init_int(&subject_max_current, 500);
+    static char subject_time_buf[UI_SUBJECT_STRING_LENGTH];
+    static char subject_time_prev_buf[UI_SUBJECT_STRING_LENGTH];
+    lv_subject_init_string(&subject_time,
+                           subject_time_buf,
+                           subject_time_prev_buf,
+                           UI_SUBJECT_STRING_LENGTH,
+                           "07:30"
+                          );
+    static char subject_date_buf[UI_SUBJECT_STRING_LENGTH];
+    static char subject_date_prev_buf[UI_SUBJECT_STRING_LENGTH];
+    lv_subject_init_string(&subject_date,
+                           subject_date_buf,
+                           subject_date_prev_buf,
+                           UI_SUBJECT_STRING_LENGTH,
+                           "10-12 SUN"
+                          );
+    lv_subject_init_int(&subject_seconds, 0);
+    lv_subject_set_min_value_int(&subject_seconds, 0);
+    lv_subject_set_max_value_int(&subject_seconds, 59);
+    lv_subject_init_int(&subject_battery, 80);
+    lv_subject_set_min_value_int(&subject_battery, 0);
+    lv_subject_set_max_value_int(&subject_battery, 100);
+    lv_subject_init_int(&subject_steps, 6800);
+    lv_subject_set_min_value_int(&subject_steps, 0);
+    lv_subject_set_max_value_int(&subject_steps, 50000);
+    lv_subject_init_int(&subject_hr, 72);
+    lv_subject_set_min_value_int(&subject_hr, 30);
+    lv_subject_set_max_value_int(&subject_hr, 200);
+    lv_subject_init_int(&subject_temp, 24);
+    lv_subject_set_min_value_int(&subject_temp, -20);
+    lv_subject_set_max_value_int(&subject_temp, 50);
+    lv_subject_init_int(&subject_humidity, 55);
+    lv_subject_set_min_value_int(&subject_humidity, 0);
+    lv_subject_set_max_value_int(&subject_humidity, 100);
 
     /*----------------
      * Translations
@@ -569,6 +628,14 @@ void lvgl_ui_project_init_gen(const char * asset_path)
     lv_xml_register_subject(NULL, "subject_volume", &subject_volume);
     lv_xml_register_subject(NULL, "subject_timeout", &subject_timeout);
     lv_xml_register_subject(NULL, "subject_max_current", &subject_max_current);
+    lv_xml_register_subject(NULL, "subject_time", &subject_time);
+    lv_xml_register_subject(NULL, "subject_date", &subject_date);
+    lv_xml_register_subject(NULL, "subject_seconds", &subject_seconds);
+    lv_xml_register_subject(NULL, "subject_battery", &subject_battery);
+    lv_xml_register_subject(NULL, "subject_steps", &subject_steps);
+    lv_xml_register_subject(NULL, "subject_hr", &subject_hr);
+    lv_xml_register_subject(NULL, "subject_temp", &subject_temp);
+    lv_xml_register_subject(NULL, "subject_humidity", &subject_humidity);
 
     /* Register callbacks */
 #endif
