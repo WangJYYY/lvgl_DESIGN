@@ -12,6 +12,8 @@ list(
   ${CMAKE_CURRENT_LIST_DIR}/components/controls/text_box/text_box_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/controls/text_input/text_input_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/faces/face_dial_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/faces/face_health_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/faces/face_weather_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/images/image/image_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/images/monoicon/monoicon_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/components/layout/base_box/base_box_gen.c
@@ -59,6 +61,7 @@ list(
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_close_data.c
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_download_data.c
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_edit_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/images/icon_heart_48_data.c
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_heart_data.c
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_home_data.c
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_info_data.c
@@ -76,6 +79,7 @@ list(
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_settings_data.c
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_signal_data.c
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_star_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/images/icon_sun_48_data.c
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_sun_data.c
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_trash_data.c
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_unlock_data.c

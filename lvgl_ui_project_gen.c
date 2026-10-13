@@ -157,6 +157,10 @@ const void * icon_star = NULL;
 extern const void * icon_star_data;
 const void * icon_sun = NULL;
 extern const void * icon_sun_data;
+const void * icon_sun_48 = NULL;
+extern const void * icon_sun_48_data;
+const void * icon_heart_48 = NULL;
+extern const void * icon_heart_48_data;
 const void * icon_trash = NULL;
 extern const void * icon_trash_data;
 const void * icon_unlock = NULL;
@@ -446,6 +450,14 @@ void lvgl_ui_project_init_gen(const char * asset_path)
         if (!icon_sun) {
             icon_sun = &icon_sun_data;
         }
+        /* icon_sun_48 */
+        if (!icon_sun_48) {
+            icon_sun_48 = &icon_sun_48_data;
+        }
+        /* icon_heart_48 */
+        if (!icon_heart_48) {
+            icon_heart_48 = &icon_heart_48_data;
+        }
         /* icon_trash */
         if (!icon_trash) {
             icon_trash = &icon_trash_data;
@@ -691,6 +703,8 @@ void lvgl_ui_project_init_gen(const char * asset_path)
     lv_xml_register_image(NULL, "icon_signal", icon_signal);
     lv_xml_register_image(NULL, "icon_star", icon_star);
     lv_xml_register_image(NULL, "icon_sun", icon_sun);
+    lv_xml_register_image(NULL, "icon_sun_48", icon_sun_48);
+    lv_xml_register_image(NULL, "icon_heart_48", icon_heart_48);
     lv_xml_register_image(NULL, "icon_trash", icon_trash);
     lv_xml_register_image(NULL, "icon_unlock", icon_unlock);
     lv_xml_register_image(NULL, "icon_upload", icon_upload);

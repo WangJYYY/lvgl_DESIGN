@@ -1,0 +1,23 @@
+<!-- Weather face: current conditions + 3-day outlook. Binds subject_temp /
+     subject_humidity; the forecast rows are static demo strings for v1. -->
+<component>
+	<previews>
+		<preview name="round_466" width="466" height="466" style_bg_color="0x000000" style_radius="233" style_clip_corner="true" />
+	</previews>
+
+	<view width="466" height="466" scrollable="false" style_bg_opa="0%">
+		<!-- Current conditions -->
+		<lv_label name="city_label" text="SHANGHAI" align="center" y="-150" style_text_color="#color_watch_text2" style_text_font="font_h5" />
+		<lv_image name="cond_icon" src="icon_sun_48" align="center" y="-95" style_image_recolor="#color_warn" style_image_recolor_opa="100%" />
+		<lv_label name="temp_label" align="center" y="-15" bind_text="subject_temp" bind_text-fmt="%d°" style_text_font="font_h1" />
+		<lv_label name="cond_label" text="SUNNY" align="center" y="44" style_text_font="font_h4" />
+
+		<!-- Humidity readout -->
+		<lv_label name="hum_label" align="center" y="98" bind_text="subject_humidity" bind_text-fmt="HUM %d%%" style_text_color="#color_watch_text2" style_text_font="font_h5" />
+
+		<!-- 3-day outlook (static demo strings; bind real forecast data in v2) -->
+		<lv_label name="day1_label" text="MON  21°" align="center" y="140" style_text_font="font_h5" />
+		<lv_label name="day2_label" text="TUE  19°" align="center" y="172" style_text_color="#color_watch_text2" style_text_font="font_h5" />
+		<lv_label name="day3_label" text="WED  22°" align="center" y="204" style_text_color="#color_watch_text2" style_text_font="font_h5" />
+	</view>
+</component>

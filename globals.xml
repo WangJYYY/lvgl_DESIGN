@@ -425,6 +425,21 @@
 			color_format="argb8888"
 		/>
 		<data name="icon_sun" src_path="images/icons/sun.png" color_format="argb8888" />
+		<!-- 48 px tiers for watch faces (16 px icons are too small on a 466 dial) -->
+		<convert
+			src="images/icons/svg/sun.svg"
+			dest="images/icons/sun_48.png"
+			width="48"
+			color_format="argb8888"
+		/>
+		<data name="icon_sun_48" src_path="images/icons/sun_48.png" color_format="argb8888" />
+		<convert
+			src="images/icons/svg/heart.svg"
+			dest="images/icons/heart_48.png"
+			width="48"
+			color_format="argb8888"
+		/>
+		<data name="icon_heart_48" src_path="images/icons/heart_48.png" color_format="argb8888" />
 		<convert
 			src="images/icons/svg/trash.svg"
 			dest="images/icons/trash.png"

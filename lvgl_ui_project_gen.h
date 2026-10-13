@@ -248,6 +248,8 @@ extern const void * icon_settings;
 extern const void * icon_signal;
 extern const void * icon_star;
 extern const void * icon_sun;
+extern const void * icon_sun_48;
+extern const void * icon_heart_48;
 extern const void * icon_trash;
 extern const void * icon_unlock;
 extern const void * icon_upload;
@@ -311,6 +313,8 @@ void lvgl_ui_project_init_gen(const char * asset_path);
 #include "components/controls/text_box/text_box_gen.h"
 #include "components/controls/text_input/text_input_gen.h"
 #include "components/faces/face_dial_gen.h"
+#include "components/faces/face_health_gen.h"
+#include "components/faces/face_weather_gen.h"
 #include "components/images/image/image_gen.h"
 #include "components/images/monoicon/monoicon_gen.h"
 #include "components/layout/base_box/base_box_gen.h"
