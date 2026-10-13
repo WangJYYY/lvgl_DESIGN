@@ -24,6 +24,10 @@
 		<int name="icon_size" value="16" help="Default icon size" />
 		<opa name="opa_muted" value="35%" help="Used to dim down contant" />
 
+		<!-- Watch layout tokens: side insets keep flow content inside the
+		     inscribed circle of the 466x466 display -->
+		<int name="watch_side_pad" value="70" help="Left/right inset for full-width content on the round screen" />
+
 		<!-- Light palette -->
 		<color name="color_light_bg" value="0xEEF1F6" help="Light theme screen background" />
 		<color name="color_light_panel" value="0xFFFFFF" help="Light theme panel/card background" />
@@ -159,6 +163,7 @@
 		<int name="subject_hr" value="72" min_value="30" max_value="200" help="Heart rate, bpm" />
 		<int name="subject_temp" value="24" min_value="-20" max_value="50" help="Outdoor temperature, degrees C" />
 		<int name="subject_humidity" value="55" min_value="0" max_value="100" help="Relative humidity, percent" />
+		<int name="subject_page" value="0" min_value="0" max_value="2" help="Active home page: 0 = dial, 1 = health, 2 = weather" />
 	</subjects>
 
 	<images>
@@ -440,6 +445,13 @@
 			color_format="argb8888"
 		/>
 		<data name="icon_heart_48" src_path="images/icons/heart_48.png" color_format="argb8888" />
+		<convert
+			src="images/icons/svg/settings.svg"
+			dest="images/icons/settings_48.png"
+			width="48"
+			color_format="argb8888"
+		/>
+		<data name="icon_settings_48" src_path="images/icons/settings_48.png" color_format="argb8888" />
 		<convert
 			src="images/icons/svg/trash.svg"
 			dest="images/icons/trash.png"

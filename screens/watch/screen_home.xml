@@ -1,0 +1,88 @@
+<!-- Watch home: round bezel + INFINITE CAROUSEL of the three faces
+     (dial / health / weather). Three fixed slots (left/center/right) host the
+     faces; sim/main.c re-parents the face trees after every snap so swiping
+     past an edge wraps around seamlessly. Page dots track subject_page. -->
+<screen permanent="true">
+	<styles>
+		<style name="style_dot_active" bg_color="#color_data" bg_opa="100%" />
+	</styles>
+
+	<view extends="lv_obj" style_bg_color="0x000000" style_radius="233" style_clip_corner="true">
+		<!-- Round bezel ring framing the dial area -->
+		<lv_obj
+			name="bezel"
+			width="466" height="466"
+			scrollable="false"
+			style_bg_opa="0%"
+			style_border_width="4"
+			style_border_color="0x04ff00"
+			style_radius="233"
+			style_clip_corner="true"
+		>
+			<!-- Carousel slots: left = previous face, center = current, right = next.
+			     Initial state: page 0 (dial) centered. C rotates the contents. -->
+			<lv_obj
+				name="pager"
+				width="466" height="466"
+				scrollable="true"
+				scroll_snap_x="center"
+				scroll_one="true"
+				scrollbar_mode="off"
+				style_bg_opa="0%"
+				style_border_width="0"
+				style_pad_all="0"
+			>
+				<lv_obj
+					name="page_left"
+					x="0" y="0" width="466" height="466"
+					scrollable="false" snappable="true"
+					style_bg_opa="0%" style_border_width="0" style_pad_all="0"
+				>
+					<face_weather />
+				</lv_obj>
+				<lv_obj
+					name="page_center"
+					x="466" y="0" width="466" height="466"
+					scrollable="false" snappable="true"
+					style_bg_opa="0%" style_border_width="0" style_pad_all="0"
+				>
+					<face_dial />
+				</lv_obj>
+				<lv_obj
+					name="page_right"
+					x="932" y="0" width="466" height="466"
+					scrollable="false" snappable="true"
+					style_bg_opa="0%" style_border_width="0" style_pad_all="0"
+				>
+					<face_health />
+				</lv_obj>
+			</lv_obj>
+		</lv_obj>
+
+		<!-- Page indicator dots; the active one is tinted via subject_page -->
+		<lv_obj
+			name="dot1" width="10" height="10"
+			align="center" x="-24" y="205"
+			scrollable="false" clickable="false"
+			style_radius="100" style_bg_color="#color_watch_text2" style_bg_opa="40%" style_border_width="0"
+		>
+			<bind_style name="style_dot_active" subject="subject_page" ref_value="0" />
+		</lv_obj>
+		<lv_obj
+			name="dot2" width="10" height="10"
+			align="center" x="0" y="205"
+			scrollable="false" clickable="false"
+			style_radius="100" style_bg_color="#color_watch_text2" style_bg_opa="40%" style_border_width="0"
+		>
+			<bind_style name="style_dot_active" subject="subject_page" ref_value="1" />
+		</lv_obj>
+		<lv_obj
+			name="dot3" width="10" height="10"
+			align="center" x="24" y="205"
+			scrollable="false" clickable="false"
+			style_radius="100" style_bg_color="#color_watch_text2" style_bg_opa="40%" style_border_width="0"
+		>
+			<bind_style name="style_dot_active" subject="subject_page" ref_value="2" />
+		</lv_obj>
+	</view>
+</screen>

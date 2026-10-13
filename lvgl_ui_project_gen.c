@@ -55,7 +55,9 @@ static uint32_t lvgl_ui_project_target = LVGL_UI_PROJECT_TARGET_ALL;
  *  Permanent screens
  *-------------------*/
 
+lv_obj_t * screen_settings = NULL;
 lv_obj_t * screen_components = NULL;
+lv_obj_t * screen_home = NULL;
 
 /*----------------
  * Fonts
@@ -161,6 +163,8 @@ const void * icon_sun_48 = NULL;
 extern const void * icon_sun_48_data;
 const void * icon_heart_48 = NULL;
 extern const void * icon_heart_48_data;
+const void * icon_settings_48 = NULL;
+extern const void * icon_settings_48_data;
 const void * icon_trash = NULL;
 extern const void * icon_trash_data;
 const void * icon_unlock = NULL;
@@ -213,6 +217,7 @@ lv_subject_t subject_steps;
 lv_subject_t subject_hr;
 lv_subject_t subject_temp;
 lv_subject_t subject_humidity;
+lv_subject_t subject_page;
 
 /**********************
  *      MACROS
@@ -458,6 +463,10 @@ void lvgl_ui_project_init_gen(const char * asset_path)
         if (!icon_heart_48) {
             icon_heart_48 = &icon_heart_48_data;
         }
+        /* icon_settings_48 */
+        if (!icon_settings_48) {
+            icon_settings_48 = &icon_settings_48_data;
+        }
         /* icon_trash */
         if (!icon_trash) {
             icon_trash = &icon_trash_data;
@@ -609,6 +618,9 @@ void lvgl_ui_project_init_gen(const char * asset_path)
     lv_subject_init_int(&subject_humidity, 55);
     lv_subject_set_min_value_int(&subject_humidity, 0);
     lv_subject_set_max_value_int(&subject_humidity, 100);
+    lv_subject_init_int(&subject_page, 0);
+    lv_subject_set_min_value_int(&subject_page, 0);
+    lv_subject_set_max_value_int(&subject_page, 2);
 
     /*----------------
      * Translations
@@ -658,6 +670,7 @@ void lvgl_ui_project_init_gen(const char * asset_path)
     lv_xml_register_subject(NULL, "subject_hr", &subject_hr);
     lv_xml_register_subject(NULL, "subject_temp", &subject_temp);
     lv_xml_register_subject(NULL, "subject_humidity", &subject_humidity);
+    lv_xml_register_subject(NULL, "subject_page", &subject_page);
 
     /* Register callbacks */
 #endif
@@ -705,6 +718,7 @@ void lvgl_ui_project_init_gen(const char * asset_path)
     lv_xml_register_image(NULL, "icon_sun", icon_sun);
     lv_xml_register_image(NULL, "icon_sun_48", icon_sun_48);
     lv_xml_register_image(NULL, "icon_heart_48", icon_heart_48);
+    lv_xml_register_image(NULL, "icon_settings_48", icon_settings_48);
     lv_xml_register_image(NULL, "icon_trash", icon_trash);
     lv_xml_register_image(NULL, "icon_unlock", icon_unlock);
     lv_xml_register_image(NULL, "icon_upload", icon_upload);
@@ -722,7 +736,9 @@ void lvgl_ui_project_init_gen(const char * asset_path)
      *-------------------*/
     /* If XML is enabled it's assumed that the permanent screens are created
      * manually from XML using lv_xml_create() */
+    screen_settings_create();
     screen_components_create();
+    screen_home_create();
 #endif
 }
 

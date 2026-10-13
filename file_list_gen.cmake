@@ -76,6 +76,7 @@ list(
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_power_data.c
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_refresh_data.c
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_search_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/images/icon_settings_48_data.c
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_settings_data.c
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_signal_data.c
   ${CMAKE_CURRENT_LIST_DIR}/images/icon_star_data.c
@@ -93,4 +94,6 @@ list(
   ${CMAKE_CURRENT_LIST_DIR}/lvgl_ui_project_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/lvgl_ui_project.c
   ${CMAKE_CURRENT_LIST_DIR}/screens/data_bindings/screen_data_bindings_gen.c
-  ${CMAKE_CURRENT_LIST_DIR}/screens/watch/screen_components_gen.c)
+  ${CMAKE_CURRENT_LIST_DIR}/screens/settings/screen_settings_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/screens/watch/screen_components_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/screens/watch/screen_home_gen.c)

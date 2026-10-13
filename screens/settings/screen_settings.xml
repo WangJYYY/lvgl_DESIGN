@@ -1,0 +1,57 @@
+<!-- Settings page: pull DOWN on home to open; swipe UP to close (both
+     gestures wired in sim/main.c). Reuses the sliderbox components so the
+     controls write real subjects. -->
+<screen permanent="true">
+	<view extends="lv_obj" style_bg_color="0x000000" style_radius="233" style_clip_corner="true">
+		<!-- Always-dark watch screen style: white text + body font inherit down -->
+		<style name="style_screen_watch" />
+
+		<lv_obj
+			name="bezel"
+			width="466"
+			height="466"
+			scrollable="false"
+			style_bg_opa="0%"
+			style_border_width="4"
+			style_border_color="0x04ff00"
+			style_radius="233"
+			style_clip_corner="true"
+		>
+			<lv_obj
+				name="settings_page"
+				width="466"
+				height="466"
+				scrollable="true"
+				scrollbar_mode="off"
+				style_bg_opa="0%"
+				style_border_width="0"
+				style_pad_top="#watch_side_pad"
+				style_pad_bottom="#space_lg"
+				style_pad_left="#watch_side_pad"
+				style_pad_right="#watch_side_pad"
+			>
+				<column width="100%" height="content" gap="#space_lg">
+					<h3 text="Settings" />
+
+					<sliderbox
+						subject="subject_brightness"
+						title="Brightness"
+						unit="%d%%"
+						width="326"
+						height="74"
+					/>
+					<sliderbox subject="subject_timeout" title="Screen timeout" unit="%d ms" width="326" height="71" />
+
+					<panel width="326" gap="#space_sm" height="95">
+						<h5 text="About" />
+						<row width="100%" gap="#space_sm" vertical_align="center">
+							<lv_image src="icon_battery" />
+							<lv_label bind_text="subject_battery" bind_text-fmt="Battery %d%%" />
+						</row>
+						<lv_label text="Firmware v1.0 (PC sim)" style_text_color="#color_watch_text2" />
+					</panel>
+				</column>
+			</lv_obj>
+		</lv_obj>
+	</view>
+</screen>

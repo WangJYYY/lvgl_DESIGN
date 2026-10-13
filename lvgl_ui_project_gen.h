@@ -89,6 +89,10 @@ bool lvgl_ui_project_check_target(uint32_t target);
  */
 #define OPA_MUTED (255 * 35 / 100)
 /**
+ * Left/right inset for full-width content on the round screen
+ */
+#define WATCH_SIDE_PAD 70
+/**
  * Light theme screen background
  */
 #define COLOR_LIGHT_BG lv_color_hex(0xEEF1F6)
@@ -174,7 +178,9 @@ bool lvgl_ui_project_check_target(uint32_t target);
  * Permanent screens
  *------------------*/
 
+extern lv_obj_t * screen_settings;
 extern lv_obj_t * screen_components;
+extern lv_obj_t * screen_home;
 
 /*----------------
  * Global styles
@@ -250,6 +256,7 @@ extern const void * icon_star;
 extern const void * icon_sun;
 extern const void * icon_sun_48;
 extern const void * icon_heart_48;
+extern const void * icon_settings_48;
 extern const void * icon_trash;
 extern const void * icon_unlock;
 extern const void * icon_upload;
@@ -278,6 +285,7 @@ extern lv_subject_t subject_steps;
 extern lv_subject_t subject_hr;
 extern lv_subject_t subject_temp;
 extern lv_subject_t subject_humidity;
+extern lv_subject_t subject_page;
 
 /**********************
  * GLOBAL PROTOTYPES
@@ -336,7 +344,9 @@ void lvgl_ui_project_init_gen(const char * asset_path);
 #include "components/typography/h5/h5_gen.h"
 #include "components/typography/text/text_gen.h"
 #include "screens/data_bindings/screen_data_bindings_gen.h"
+#include "screens/settings/screen_settings_gen.h"
 #include "screens/watch/screen_components_gen.h"
+#include "screens/watch/screen_home_gen.h"
 
 #ifdef __cplusplus
 } /*extern "C"*/

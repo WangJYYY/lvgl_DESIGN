@@ -88,14 +88,14 @@ lv_obj_t * face_weather_create(lv_obj_t * parent)
         lv_obj_set_name(day1_label, "day1_label");
         lv_label_set_text(day1_label, "MON  21°");
         lv_obj_set_align(day1_label, LV_ALIGN_CENTER);
-        lv_obj_set_y(day1_label, 140);
+        lv_obj_set_y(day1_label, 124);
         lv_obj_set_style_text_font(day1_label, font_h5, 0);
 
         lv_obj_t * day2_label = lv_label_create(lv_obj_0);
         lv_obj_set_name(day2_label, "day2_label");
         lv_label_set_text(day2_label, "TUE  19°");
         lv_obj_set_align(day2_label, LV_ALIGN_CENTER);
-        lv_obj_set_y(day2_label, 172);
+        lv_obj_set_y(day2_label, 154);
         lv_obj_set_style_text_color(day2_label, COLOR_WATCH_TEXT2, 0);
         lv_obj_set_style_text_font(day2_label, font_h5, 0);
 
@@ -103,7 +103,7 @@ lv_obj_t * face_weather_create(lv_obj_t * parent)
         lv_obj_set_name(day3_label, "day3_label");
         lv_label_set_text(day3_label, "WED  22°");
         lv_obj_set_align(day3_label, LV_ALIGN_CENTER);
-        lv_obj_set_y(day3_label, 204);
+        lv_obj_set_y(day3_label, 184);
         lv_obj_set_style_text_color(day3_label, COLOR_WATCH_TEXT2, 0);
         lv_obj_set_style_text_font(day3_label, font_h5, 0);
 

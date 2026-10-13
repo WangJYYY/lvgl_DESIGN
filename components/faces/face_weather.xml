@@ -15,9 +15,10 @@
 		<!-- Humidity readout -->
 		<lv_label name="hum_label" align="center" y="98" bind_text="subject_humidity" bind_text-fmt="HUM %d%%" style_text_color="#color_watch_text2" style_text_font="font_h5" />
 
-		<!-- 3-day outlook (static demo strings; bind real forecast data in v2) -->
-		<lv_label name="day1_label" text="MON  21°" align="center" y="140" style_text_font="font_h5" />
-		<lv_label name="day2_label" text="TUE  19°" align="center" y="172" style_text_color="#color_watch_text2" style_text_font="font_h5" />
-		<lv_label name="day3_label" text="WED  22°" align="center" y="204" style_text_color="#color_watch_text2" style_text_font="font_h5" />
+		<!-- 3-day outlook (static demo strings; bind real forecast data in v2).
+		     Kept above the page dots at the bottom of the home screen. -->
+		<lv_label name="day1_label" text="MON  21°" align="center" y="124" style_text_font="font_h5" />
+		<lv_label name="day2_label" text="TUE  19°" align="center" y="154" style_text_color="#color_watch_text2" style_text_font="font_h5" />
+		<lv_label name="day3_label" text="WED  22°" align="center" y="184" style_text_color="#color_watch_text2" style_text_font="font_h5" />
 	</view>
 </component>
